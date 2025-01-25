@@ -1,30 +1,111 @@
 [
   {
-    "name": "SQL Injection",
-    "issueBackground": "SQL Injection occurs when an attacker manipulates an application's SQL queries by injecting malicious input. This can lead to unauthorized access, data retrieval, modification, or deletion within the database. For example, an attacker might input ' OR '1'='1' -- to bypass authentication mechanisms.",
+    "name": "HTML Injection",
+    "issueBackground": "HTML Injection is a web security vulnerability that occurs when an application does not properly validate or sanitize user input before including it in its HTML output. This allows attackers to inject malicious HTML content into web pages, which can lead to defacement, data manipulation, or even Cross-Site Scripting (XSS) if JavaScript is executed. This vulnerability can compromise the integrity of the web application and the trust of its users.",
     "Recommendations" :[ 
-    "Ensure server-side validation of user permissions for every resource request or action.",
-    "Verify that users can access only the resources they are authorized to view or modify.",
-    "Replace direct object references with securely generated indirect identifiers (e.g., UUIDs, tokenized IDs).",
-    "Use RBAC to grant access to resources based on user roles and the principle of least privilege."
+      "Validate all user inputs on both the client-side and server-side.",
+      "Use libraries or frameworks to sanitize input and escape output before rendering it on a web page.",
+      "Encode user inputs that will be rendered as HTML to prevent injection of unwanted tags or attributes.",
+      "Implement Content Security Policies (CSP) to restrict the execution of unauthorized scripts.",
+      "Use templating engines or frameworks that automatically encode outputs, reducing the risk of injection.",
+      "Avoid using untrusted data directly in HTML attributes or tags.",
+      "Use a WAF to detect and block malicious inputs at runtime.",
+      "Provide training on secure coding techniques to minimize the risk of introducing vulnerabilities."
   ],
     "relatedLinks": [
-      "https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference",
-      "https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference"
+      "https://www.imperva.com/learn/application-security/html-injection/",
+      "https://www.invicti.com/learn/html-injection/"
     ]    
   },
   {
     "name": "Insecure Direct Object Reference (IDOR)",
-    "issueBackground": "Insecure Direct Object References (IDOR) is a type of access control vulnerability that occurs when an application provides direct access to objects (e.g., files, database records, or URLs) based on user-supplied input without proper authorization checks. This flaw allows attackers to manipulate parameters to gain unauthorized access to sensitive resources or perform actions intended for other users, potentially compromising the confidentiality, integrity, and security of the application.",
+    "issueBackground": "Insecure Direct Object References (IDOR) is an access control vulnerability that arises when applications allow users to access or modify objects (e.g., database entries, files, or resources) directly by referencing them through parameters like IDs or keys, without validating proper authorization. Exploiting this flaw, attackers can manipulate these references to gain unauthorized access to data or functionality, potentially leading to breaches of confidentiality, integrity, or availability.",
     "Recommendations" :[ 
-    "Ensure server-side validation of user permissions for every resource request or action.",
-    "Verify that users can access only the resources they are authorized to view or modify.",
-    "Replace direct object references with securely generated indirect identifiers (e.g., UUIDs, tokenized IDs).",
-    "Use RBAC to grant access to resources based on user roles and the principle of least privilege."
+      "Ensure server-side validation of user permissions for every resource request or action.",
+      "Verify that users can access only the resources they are authorized to view or modify.",
+      "Replace direct object references with securely generated indirect identifiers (e.g., UUIDs, tokenized IDs).",
+      "Use RBAC to grant access to resources based on user roles and the principle of least privilege.",
+      "Log all access attempts and monitor for unusual patterns or unauthorized access attempts.",
+      "Implement alert mechanisms for repeated unauthorized access attempts.",
+      "Perform regular penetration testing, secure code reviews, and vulnerability scans to identify and mitigate IDOR risks."
   ],
     "relatedLinks": [
       "https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference",
-      "https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference"
+      "https://www.invicti.com/learn/insecure-direct-object-references-idor/"
+    ]
+  },
+  {
+    "name": "Insecure Session Management",
+    "issueBackground": "Insecure session management is a vulnerability that arises when applications fail to securely create, manage, and terminate user sessions. This can lead to session hijacking, fixation, or unauthorized access if session identifiers are predictable, inadequately protected, or improperly invalidated. Attackers exploiting this flaw can impersonate users, access sensitive information, or perform unauthorized actions within the application.",
+    "Recommendations" :[ 
+      "Regenerate session identifiers after login, privilege escalation, or other sensitive operations to prevent session fixation.",
+      "Mark session cookies with the HttpOnly, Secure, and SameSite=Strict attributes.",
+      "Ensure cookies are transmitted only over secure (HTTPS) connections.",
+      "Set idle and absolute timeouts for sessions to reduce the risk of hijacking.",
+      "Force users to re-authenticate after a defined period of inactivity.",
+      "Use Cross-Site Request Forgery (CSRF) tokens to protect session integrity.",
+      "Use securely generated, random, and sufficiently long session identifiers to prevent brute-force attacks.",
+      "Provide users with a logout feature that fully invalidates the session on the server.",
+      "Ensure proper cleanup of server-side session data upon logout."
+  ],
+    "relatedLinks": [
+      "https://owasp.org/www-project-mobile-top-10/2014-risks/m9-improper-session-handling",
+      "https://help.fluidattacks.com/portal/en/kb/articles/criteria-vulnerabilities-076"
+    ]
+  },
+  {
+    "name": "Privilege Escalation",
+    "issueBackground": "Privilege escalation is a vulnerability that allows attackers to gain higher-level permissions or access than intended. This occurs due to improper implementation of access controls, insecure configurations, or flaws in the application's code. Exploiting privilege escalation, attackers can compromise sensitive data, perform unauthorized actions, or control critical application functionality, leading to a significant security breach.",
+    "Recommendations" :[ 
+      "Use role-based access control (RBAC) to ensure that users only have the permissions necessary for their roles.",
+      "Enforce the principle of least privilege (PoLP) to minimize access rights.",
+      "Validate permissions for all actions and resources on the server side.",
+      "Avoid relying on client-side enforcement of permissions.",
+      "Restrict access to sensitive API endpoints based on user roles and permissions.",
+      "Test the effectiveness of role and permission management controls."
+  ],
+    "relatedLinks": [
+      "https://www.beyondtrust.com/blog/entry/privilege-escalation-attack-defense-explained",
+      "https://www.imperva.com/learn/data-security/privilege-escalation/"
+    ]
+  },
+  {
+    "name": "Clickjacking",
+    "issueBackground": "Clickjacking is a web security vulnerability that occurs when an attacker tricks users into clicking on elements of a website without their knowledge. By embedding a legitimate web page inside an invisible or opaque iframe, attackers can overlay it with misleading content. This exploit can lead to unintended actions, such as changing user settings, initiating unauthorized transactions, or even compromising sensitive information.",
+    "Recommendations" :[ 
+      "Configure the HTTP header X-Frame-Options to DENY or SAMEORIGIN to prevent your site from being embedded in iframes on unauthorized domains.",
+      "Use CSP frame-ancestors directive to explicitly specify which domains are allowed to embed your content.",
+      "Ensure that critical actions require explicit user interactions, such as multi-step confirmations or reauthentication.",
+      "Implement JavaScript-based frame-busting techniques to detect and prevent your content from being loaded in iframes."
+  ],
+    "relatedLinks": [
+      "https://www.imperva.com/learn/application-security/clickjacking/",
+      "https://www.pingidentity.com/en/resources/cybersecurity-fundamentals/threats/clickjacking.html"
+    ]
+  },
+  {
+    "name": "Session Token in URL",
+    "issueBackground": "Storing session tokens in the URL is a security vulnerability that occurs when sensitive tokens, such as session IDs or authentication tokens, are included as part of the URL. This practice is insecure because URLs are often logged in browser history, web server logs, or shared accidentally, exposing session tokens to unauthorized parties. An attacker who obtains these tokens can hijack user sessions, gaining unauthorized access to accounts or sensitive information.",
+    "Recommendations" :[ 
+      "Use secure cookies with the HttpOnly attribute to store session tokens instead of including them in the URL.",
+      "Ensure all communication between clients and servers is encrypted using HTTPS to protect tokens from being intercepted.",
+      "Set short expiration times for session tokens and implement automatic token rotation to reduce exposure.",
+      "Mark cookies with Secure, HttpOnly, and SameSite=Strict attributes to prevent them from being accessed via JavaScript or sent in cross-site requests."
+  ],
+    "relatedLinks": [
+      "https://owasp.org/www-community/attacks/Session_fixation",
+      "https://www.acunetix.com/vulnerabilities/web/session-id-in-url/"
+    ]
+  },
+  {
+    "name": "Template",
+    "issueBackground": "",
+    "Recommendations" :[ 
+      ""
+  ],
+    "relatedLinks": [
+      "",
+      ""
     ]
   }
 ]
