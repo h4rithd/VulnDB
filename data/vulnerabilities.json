@@ -2,113 +2,29 @@
   {
     "name": "SQL Injection",
     "issueBackground": "SQL Injection occurs when an attacker manipulates an application's SQL queries by injecting malicious input. This can lead to unauthorized access, data retrieval, modification, or deletion within the database. For example, an attacker might input ' OR '1'='1' -- to bypass authentication mechanisms.",
+    "Recommendations" :[ 
+    "Ensure server-side validation of user permissions for every resource request or action.",
+    "Verify that users can access only the resources they are authorized to view or modify.",
+    "Replace direct object references with securely generated indirect identifiers (e.g., UUIDs, tokenized IDs).",
+    "Use RBAC to grant access to resources based on user roles and the principle of least privilege."
+  ],
     "relatedLinks": [
-      "https://owasp.org/www-project-top-ten/2017/A1_2017-SQL_Injection"
-    ]
-  },
-  {
-    "name": "Cross-Site Scripting (XSS)",
-    "issueBackground": "XSS vulnerabilities arise when an application allows the injection of malicious scripts into content that is then delivered to other users. This can lead to session hijacking, defacement, or redirection to malicious sites. XSS is categorized into Stored, Reflected, and DOM-Based types.",
-    "relatedLinks": [
-      "https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting"
-    ]
-  },
-  {
-    "name": "Stored XSS",
-    "issueBackground": "Stored XSS occurs when malicious scripts are permanently stored on the target server, such as in a database or forum post. When other users access the affected content, the script executes in their browsers, potentially compromising their accounts.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/attacks/xss/#stored-xss"
-    ]
-  },
-  {
-    "name": "Reflected XSS",
-    "issueBackground": "Reflected XSS happens when malicious scripts are reflected off a web application onto the user's browser, typically through URL parameters. An attacker tricks a user into clicking a malicious link, causing the script to execute in the user's browser.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/attacks/xss/#reflected-xss"
-    ]
-  },
-  {
-    "name": "DOM-Based XSS",
-    "issueBackground": "DOM-Based XSS arises when the Document Object Model (DOM) environment is modified in the browser, leading to the execution of malicious scripts. This occurs without any new pages being loaded and is a client-side vulnerability.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/attacks/DOM_Based_XSS"
-    ]
-  },
-  {
-    "name": "XML Injection (XMLi)",
-    "issueBackground": "XML Injection occurs when user input is improperly handled in XML applications, allowing attackers to manipulate XML data or structure. This can lead to unauthorized data access, modification, or denial of service.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/attacks/XML_Injection"
-    ]
-  },
-  {
-    "name": "HTML Injection (HTMLi)",
-    "issueBackground": "HTML Injection happens when an attacker injects arbitrary HTML content into a web page due to improper input validation. This can alter the page's appearance or behavior, potentially leading to further attacks like XSS.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/attacks/HTML_Injection"
-    ]
-  },
-  {
-    "name": "Rate Limiting Issues",
-    "issueBackground": "The absence of proper rate limiting allows attackers to perform automated attacks, such as brute-force attempts, without restriction. Implementing rate limiting helps prevent abuse by limiting the number of requests a user can make in a given time frame.",
-    "relatedLinks": [
-      "https://owasp.org/www-project-api-security/editions/2023/en/0xa4-rate-limiting"
-    ]
-  },
-  {
-    "name": "Authentication Bypass",
-    "issueBackground": "Authentication Bypass occurs when an attacker gains unauthorized access to a system by circumventing authentication mechanisms. This can result from weak passwords, flawed authentication logic, or vulnerabilities like SQL Injection.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/attacks/Authentication_Bypass"
-    ]
-  },
-  {
-    "name": "OTP Flooding",
-    "issueBackground": "OTP Flooding involves generating multiple One-Time Password (OTP) requests to overwhelm the system or discover valid OTPs through brute force. This can lead to denial of service or unauthorized access if the system is not properly secured.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/attacks/Brute_force_attack"
-    ]
-  },
-  {
-    "name": "OTP Bypass",
-    "issueBackground": "OTP Bypass occurs when an attacker circumvents the OTP verification process, potentially through vulnerabilities in the implementation. This can lead to unauthorized access, even if OTP mechanisms are in place.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/attacks/Bypassing_Two-Factor_Authentication"
-    ]
-  },
-  {
-    "name": "Sensitive Information Disclosure",
-    "issueBackground": "Sensitive Information Disclosure happens when an application unintentionally exposes sensitive data, such as personal information, system details, or configuration files. This can aid attackers in crafting more targeted attacks.",
-    "relatedLinks": [
-      "https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure"
-    ]
+      "https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference",
+      "https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference"
+    ]    
   },
   {
     "name": "Insecure Direct Object Reference (IDOR)",
-    "issueBackground": "IDOR occurs when an application provides direct access to objects based on user input without proper authorization checks. Attackers can manipulate input to access unauthorized data or functions.",
+    "issueBackground": "Insecure Direct Object References (IDOR) is a type of access control vulnerability that occurs when an application provides direct access to objects (e.g., files, database records, or URLs) based on user-supplied input without proper authorization checks. This flaw allows attackers to manipulate parameters to gain unauthorized access to sensitive resources or perform actions intended for other users, potentially compromising the confidentiality, integrity, and security of the application.",
+    "Recommendations" :[ 
+    "Ensure server-side validation of user permissions for every resource request or action.",
+    "Verify that users can access only the resources they are authorized to view or modify.",
+    "Replace direct object references with securely generated indirect identifiers (e.g., UUIDs, tokenized IDs).",
+    "Use RBAC to grant access to resources based on user roles and the principle of least privilege."
+  ],
     "relatedLinks": [
-      "https://owasp.org/www-community/attacks/IDOR"
-    ]
-  },
-  {
-    "name": "HTTP Header Injection",
-    "issueBackground": "HTTP Header Injection happens when an attacker injects malicious content into HTTP headers due to improper input validation. This can lead to HTTP response splitting, cross-site scripting, or other attacks.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/attacks/HTTP_Response_Splitting"
-    ]
-  },
-  {
-    "name": "Cookie Security Issues",
-    "issueBackground": "Cookie Security Issues involve vulnerabilities related to the improper handling of cookies, such as missing HttpOnly or Secure flags. This can lead to session hijacking or exposure of sensitive information.",
-    "relatedLinks": [
-      "https://owasp.org/www-community/HttpOnly"
-    ]
-  },
-  {
-    "name": "Broken Access Control",
-    "issueBackground": "Broken Access Control occurs when restrictions on authenticated users are not properly enforced, allowing unauthorized actions. This can lead to data leakage, modification, or deletion.",
-    "relatedLinks": [
-      "https://owasp.org/Top10/A01_2021-Broken_Access_Control/"
+      "https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference",
+      "https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference"
     ]
   }
 ]
