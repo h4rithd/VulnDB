@@ -161,7 +161,8 @@
         </form>
 
         <!-- Result Card  -->
-        <div id="suggestions" class="w-full h-100 p-2 overflow-y-10">
+
+        <div id="suggestions" class="w-full p-2">
 
         </div>
         <script>
@@ -205,8 +206,9 @@
           });
         </script>
         <!-- Add a simple popup for "Copied!" notification -->
-        <div id="copyNotification" class="hidden fixed bottom-5 right-5 bg-blue-700 text-white text-sm font-medium p-3 rounded-lg shadow-lg">
-        Copied to clipboard!
+        <div id="copyNotification"
+          class="hidden fixed bottom-5 right-5 bg-blue-700 text-white text-sm font-medium p-3 rounded-lg shadow-lg">
+          Copied to clipboard!
         </div>
       </div>
     </div>
@@ -428,18 +430,18 @@
         console.error("Failed to copy: ", err);
       });
     }
-  
+
     function showNotification(message) {
       const notification = document.getElementById("copyNotification");
       notification.innerText = message;
       notification.classList.remove("hidden");
-  
+
       // Hide the notification after 2 seconds
       setTimeout(() => {
         notification.classList.add("hidden");
       }, 2000);
     }
-    </script>
+  </script>
 </body>
 
 </html>
