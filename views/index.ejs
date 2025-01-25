@@ -27,7 +27,6 @@
       document.documentElement.classList.remove('dark')
       //document.documentElement.classList.add('dark');
     }
-
   </script>
 </head>
 
@@ -131,28 +130,12 @@
     <!-- MainP -->
     <div name="section"
       class="w-full h-full flex flex-row bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900">
-
-      <div id="spinner"
-        class="invisible bg-gradient-to-b from-transparent to-blue-50 dark:from-blue-900 w-full h-full absolute flex justify-center items-center">
-        <div role="status">
-          <svg aria-hidden="true" class="inline w-10 h-10text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-            viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-              fill="currentColor" />
-            <path
-              d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-              fill="currentFill" />
-          </svg>
-        </div>
-      </div>
-
       <div class="w-full h-80 flex flex-col p-3 m-3">
         <!-- Search Bar -->
         <form class="w-full flex flex-col p-2 m-10">
           <label for="chat" class="sr-only">Search</label>
           <div class="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="bg-blue-100" class="w-10 h-10 ">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3f83f8" class="w-10 h-10 ">
               <path d="M21 6.375c0 2.692-4.03 4.875-9 4.875S3 9.067 3 6.375 7.03 1.5 12 1.5s9 2.183 9 4.875Z" />
               <path
                 d="M12 12.75c2.685 0 5.19-.586 7.078-1.609a8.283 8.283 0 0 0 1.897-1.384c.016.121.025.244.025.368C21 12.817 16.97 15 12 15s-9-2.183-9-4.875c0-.124.009-.247.025-.368a8.285 8.285 0 0 0 1.897 1.384C6.809 12.164 9.315 12.75 12 12.75Z" />
@@ -167,7 +150,7 @@
               placeholder="Search vulnerabilities..."></input>
             <button type="submit"
               class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3f83f8" class="w-10 h-10">
                 <path
                   d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
               </svg>
@@ -199,7 +182,7 @@
               .map((v) => `
           <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <div class="flex flex-row">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3c69ba" class="w-10 h-10">
                 <path fill-rule="evenodd"
                   d="M6.56 1.14a.75.75 0 0 1 .177 1.045 3.989 3.989 0 0 0-.464.86c.185.17.382.329.59.473A3.993 3.993 0 0 1 10 2c1.272 0 2.405.594 3.137 1.518.208-.144.405-.302.59-.473a3.989 3.989 0 0 0-.464-.86.75.75 0 0 1 1.222-.869c.369.519.65 1.105.822 1.736a.75.75 0 0 1-.174.707 7.03 7.03 0 0 1-1.299 1.098A4 4 0 0 1 14 6c0 .52-.301.963-.723 1.187a6.961 6.961 0 0 1-1.158.486c.13.208.231.436.296.679 1.413-.174 2.779-.5 4.081-.96a19.655 19.655 0 0 0-.09-2.319.75.75 0 1 1 1.493-.146 21.239 21.239 0 0 1 .08 3.028.75.75 0 0 1-.482.667 20.873 20.873 0 0 1-5.153 1.249 2.521 2.521 0 0 1-.107.247 20.945 20.945 0 0 1 5.252 1.257.75.75 0 0 1 .482.74 20.945 20.945 0 0 1-.908 5.107.75.75 0 0 1-1.433-.444c.415-1.34.69-2.743.806-4.191-.495-.173-1-.327-1.512-.46.05.284.076.575.076.873 0 1.814-.517 3.312-1.426 4.37A4.639 4.639 0 0 1 10 19a4.639 4.639 0 0 1-3.574-1.63C5.516 16.311 5 14.813 5 13c0-.298.026-.59.076-.873-.513.133-1.017.287-1.512.46.116 1.448.39 2.85.806 4.191a.75.75 0 1 1-1.433.444 20.94 20.94 0 0 1-.908-5.107.75.75 0 0 1 .482-.74 20.838 20.838 0 0 1 5.252-1.257 2.493 2.493 0 0 1-.107-.247 20.874 20.874 0 0 1-5.153-1.249.75.75 0 0 1-.482-.667 21.342 21.342 0 0 1 .08-3.028.75.75 0 1 1 1.493.146 19.745 19.745 0 0 0-.09 2.319c1.302.46 2.668.786 4.08.96.066-.243.166-.471.297-.679a6.962 6.962 0 0 1-1.158-.486A1.348 1.348 0 0 1 6 6a4 4 0 0 1 .166-1.143 7.032 7.032 0 0 1-1.3-1.098.75.75 0 0 1-.173-.707 5.48 5.48 0 0 1 .822-1.736.75.75 0 0 1 1.046-.177Z"
                   clip-rule="evenodd" />
@@ -207,20 +190,24 @@
               <h5 id="issueName" class="mb-1 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">${v.name}</h5>
             </div>
             <h6 class="font-normal text-lg text-gray-900 dark:text-white">Issue Background:</h6>
-            <p class="text-lg font-normal text-gray-500 dark:text-gray-400">${v.issueBackground}</p>
-            <h6 class="font-normal text-lg text-gray-900 dark:text-white">Recommendations:</h6>
-            <ul class="list-disc pl-6 text-gray-500 dark:text-gray-400">
-            ${v.Recommendations.map(rec => `<li>${rec}</li>`).join("")}
+            <span onclick="copyToClipboard(this)" class="font-light font-normal cursor-pointer text-gray-500 dark:text-gray-400">${v.issueBackground}</span>
+            <h6 class="font-normal pt-4 text-lg text-gray-900 dark:text-white">Recommendations:</h6>
+            <ul class="list-disc pl-8 text-gray-500 dark:text-gray-400">
+            ${v.Recommendations.map(rec => `<li class="font-light cursor-pointer" onclick="copyToClipboard(this)">${rec}</li>`).join("")}
             </ul>
-            <h6 class="font-normal text-lg text-gray-900 dark:text-white">Related Links:</h6>
-          <ul class="font-medium items-center text-blue-600 hover:underline list-disc pl-6 text-blue-600 dark:text-blue-400">
-            ${v.relatedLinks.map(link => `<li><a href="${link}" target="_blank">${link}</a></li>`).join("")}
+            <h6 class="font-normal pt-4 text-lg text-gray-900 dark:text-white">Related Links:</h6>
+          <ul class="font-medium pl-8 items-center text-blue-600 hover:underline list-disc pl-6 text-blue-600 dark:text-blue-400 cursor-pointer" onclick="copyToClipboard(this)">
+            ${v.relatedLinks.map(link => `<li class="font-light"><a href="${link}" target="_blank">${link}</a></li>`).join("")}
           </ul>
           </div>
             `)
               .join("");
           });
         </script>
+        <!-- Add a simple popup for "Copied!" notification -->
+        <div id="copyNotification" class="hidden fixed bottom-5 right-5 bg-blue-700 text-white text-sm font-medium p-3 rounded-lg shadow-lg">
+        Copied to clipboard!
+        </div>
       </div>
     </div>
     <!-- Footer -->
@@ -430,6 +417,29 @@
     </div>
 
   </div>
+
+  <script>
+    function copyToClipboard(element) {
+      // Copy the inner text of the element
+      const textToCopy = element.innerText;
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        showNotification("Copied to clipboard!");
+      }).catch(err => {
+        console.error("Failed to copy: ", err);
+      });
+    }
+  
+    function showNotification(message) {
+      const notification = document.getElementById("copyNotification");
+      notification.innerText = message;
+      notification.classList.remove("hidden");
+  
+      // Hide the notification after 2 seconds
+      setTimeout(() => {
+        notification.classList.add("hidden");
+      }, 2000);
+    }
+    </script>
 </body>
 
 </html>
