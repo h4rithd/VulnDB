@@ -98,7 +98,245 @@
     ]
   },
   {
-    "name": "TemplateName",
+    "name": "Lack of Resources & Rate Limiting",
+    "issueBackground": "A lack of resources and rate limiting occurs when an application fails to enforce restrictions on the number or frequency of requests a user or client can make. This can lead to exploitation, such as brute force attacks, resource exhaustion (DoS attacks), or abuse of system functionality. Without proper rate limiting, attackers can overwhelm the application, causing degraded performance, downtime, or unauthorized access to resources.",
+    "Recommendations" :[ 
+      "Introduce CAPTCHA challenges for unusual or excessive requests to distinguish legitimate users from automated scripts.",
+      "Use API gateways to enforce rate limiting, authentication, and quota management for API endpoints.",
+      "Define and enforce limits on the number of requests per client within a specific time frame. Use techniques such as token buckets or sliding windows for rate control.",
+      "Train developers to identify and mitigate resource abuse risks. Inform users about acceptable usage policies."
+  ],
+    "relatedLinks": [
+      "https://www.indusface.com/blog/api42019-lack-of-resources-rate-limiting/",
+      "https://apisecurity.io/encyclopedia/content/owasp/api4-lack-of-resources-and-rate-limiting.htm"
+    ]
+  },
+  {
+    "name": "Sensitive Information Disclosure",
+    "issueBackground": "Sensitive information disclosure occurs when an application unintentionally exposes sensitive or confidential data, such as user credentials, personal information, API keys, system configurations, or internal business logic. This can happen due to misconfigurations, insufficient access controls, or improper error handling. If exploited, attackers can use the disclosed information to launch further attacks, compromise systems, or steal sensitive data.",
+    "Recommendations" :[ 
+      "Implement strict access controls using the principle of least privilege (PoLP) to ensure only authorized users can access sensitive information.",
+      "Avoid exposing detailed error messages to end users that may contain sensitive data, such as database queries, file paths, or stack traces.",
+      "Encrypt sensitive information in transit using protocols like HTTPS and at rest using robust encryption standards (e.g., AES-256).",
+      "Avoid storing sensitive information like API keys, passwords, or credentials in source code. Use secure vaults or environment variables for secrets management."
+  ],
+    "relatedLinks": [
+      "https://cwe.mitre.org/data/definitions/200.html",
+      "https://www.hackerone.com/blog/how-information-disclosure-vulnerability-led-critical-data-exposure"
+    ]
+  },
+  {
+    "name": "Missing Server-Side Validation",
+    "issueBackground": "Missing server-side validation occurs when an application relies solely on client-side mechanisms (e.g., JavaScript) to validate user input, without implementing robust checks on the server side. This creates a security risk as attackers can bypass client-side controls using tools like proxies or custom scripts to manipulate input data. Exploiting this vulnerability may lead to unauthorized access, injection attacks (e.g., SQL or XSS), or data integrity issues.",
+    "Recommendations" :[ 
+      "Validate all user inputs on the server side, regardless of whether client-side validation is also performed. Ensure input adheres to expected formats, lengths, and types.",
+      "Remove potentially malicious content from inputs by using sanitization techniques. Escape data before rendering it in the output to prevent injection attacks.",
+      "Use strict data types, regex patterns, or predefined lists (e.g., whitelists) to enforce acceptable input values.",
+      "Ensure proper checks are in place to confirm the authenticity of the user and their permission to access or modify specific resources."
+  ],
+    "relatedLinks": [
+      "https://formspree.io/blog/server-side-validation/",
+      "https://www.packetlabs.net/posts/input-validation/"
+    ]
+  },
+  {
+    "name": "User Enumeration",
+    "issueBackground": "User enumeration occurs when an application reveals information about existing user accounts through error messages, responses, or timing differences during authentication or other actions. For instance, an application may return distinct messages for valid versus invalid usernames during login attempts or password resets. This allows attackers to verify the existence of user accounts, potentially facilitating brute force or targeted attacks.",
+    "Recommendations" :[ 
+      "Use generic and consistent error messages such as “Invalid credentials” or “Action could not be completed” to avoid disclosing whether a username or email exists.",
+      "Ensure that application responses take a uniform amount of time, regardless of whether the user exists, to prevent timing-based enumeration.",
+      "Apply rate limiting to restrict the number of requests per IP or user account within a specific time frame.",
+      "Introduce CAPTCHA for repeated login attempts, password resets, or other actions that could reveal user account information."
+  ],
+    "relatedLinks": [
+      "https://stytch.com/blog/what-is-an-enumeration-attack/",
+      "https://www.virtuesecurity.com/kb/username-enumeration/"
+    ]
+  },
+  {
+    "name": "Account Takeover",
+    "issueBackground": "Account takeover occurs when an attacker gains unauthorized access to a user's account, often by exploiting vulnerabilities such as weak authentication mechanisms, credential reuse, phishing, or session management flaws. This type of attack compromises user privacy and security, potentially leading to fraud, data breaches, or misuse of the account for malicious purposes.",
+    "Recommendations" :[ 
+      "Ensure API endpoints related to authentication are secure, properly rate-limited, and protected from replay attacks.",
+      "Implement multi-factor authentication (MFA) to add an extra layer of security.",
+      "Ensure secure session token handling by using unique, cryptographically strong tokens.",
+      "Set session tokens to expire after inactivity and regenerate them upon reauthentication.",
+      "Hash passwords using strong algorithms such as bcrypt, Argon2, or PBKDF2, with sufficient computational cost and salt.",
+      "Verify user identity through multiple secure methods (e.g., email verification, MFA) during password reset or account recovery processes."
+  ],
+    "relatedLinks": [
+      "https://www.imperva.com/learn/application-security/account-takeover-ato/",
+      "https://www.fortinet.com/resources/cyberglossary/account-takeover"
+    ]
+  },
+  {
+    "name": "Improper Authorization",
+    "issueBackground": "Improper authorization occurs when an application fails to adequately verify whether a user has the necessary permissions to perform a specific action or access a resource. This flaw can lead to unauthorized access to sensitive data, functionality, or administrative features. Improper authorization is commonly associated with broken access control vulnerabilities, such as IDOR, privilege escalation, or bypassing authorization mechanisms.",
+    "Recommendations" :[ 
+      "Define and enforce strict access control policies that specify which users or roles have permission to access specific resources and perform particular actions.",
+      "Ensure that the system performs proper authorization checks for every request to access resources or execute actions, verifying that the user has the appropriate permissions.",
+      "Assign users the minimum level of access necessary to perform their duties, reducing the risk of unauthorized access or actions.",
+      "Implement RBAC to manage permissions based on user roles, simplifying the assignment and management of access rights.",
+      "Keep detailed logs of access attempts and actions performed within the system. Regularly review these logs to detect and respond to unauthorized access or activities."
+  ],
+    "relatedLinks": [
+      "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+      "https://cwe.mitre.org/data/definitions/285.html"
+    ]
+  },
+  {
+    "name": "Improper Session Handling",
+    "issueBackground": "Improper session handling occurs when an application fails to securely create, manage, or terminate user sessions. Vulnerabilities in session management can lead to session hijacking, fixation, or misuse, allowing attackers to impersonate legitimate users and gain unauthorized access to their accounts. Weak session handling is often caused by insecure cookie management, improper session expiration, or insufficient protection of session tokens.",
+    "Recommendations" :[ 
+      "Generate session tokens using cryptographically secure algorithms.",
+      "Ensure tokens are sufficiently random to prevent prediction or brute-force attacks.",
+      "Set the Secure flag on cookies to ensure they are only transmitted over HTTPS.",
+      "Use the HttpOnly flag to prevent client-side scripts from accessing session cookies.",
+      "Set the SameSite attribute to mitigate cross-site request forgery (CSRF) attacks.",
+      "Implement session timeout mechanisms to invalidate sessions after a period of inactivity.",
+      "Use absolute expiration for long-lived sessions to enforce reauthentication.",
+      "Regenerate session tokens upon login, privilege escalation, or other critical actions to prevent session fixation attacks.",
+      "Properly terminate sessions when a user logs out by invalidating the associated session token on the server.",
+      "Limit the number of concurrent sessions per user to prevent misuse.",
+      "Lock or expire idle sessions after a predefined duration."
+  ],
+    "relatedLinks": [
+      "https://owasp.org/www-project-mobile-top-10/2014-risks/m9-improper-session-handling",
+      "https://knowledge-base.secureflag.com/vulnerabilities/broken_authentication/broken_session_management_vulnerability.html"
+    ]
+  },
+  {
+    "name": "Broken Access Control",
+    "issueBackground": "Broken access control occurs when an application fails to enforce proper restrictions on user actions or resource access based on their roles and privileges. This can allow attackers to bypass authorization mechanisms and perform unauthorized actions, such as accessing sensitive data, modifying user accounts, or escalating privileges. Broken access control is a critical vulnerability and is one of the most common issues identified in web applications.",
+    "Recommendations" :[ 
+      "Always implement access control checks on the server side to prevent users from bypassing client-side restrictions.",
+      "Ensure authorization is verified for every request, including API calls and sensitive actions.",
+      "Define roles and assign specific permissions to each role.",
+      "Ensure that users can only access resources and functionalities allowed by their role.",
+      "Use attributes such as user ID, location, time, or action type to enforce more granular access control policies.",
+      "Do not expose internal identifiers (e.g., database keys) in URLs or client-side data. Use secure, unique references instead.",
+      "Implement strict checks to validate user access to specific objects, such as files, records, or database entries.",
+      "Apply authentication and authorization checks for every API endpoint. Ensure endpoints are not accessible without proper permissions.",
+      "Limit permissions to the minimum required for a user's role or task to reduce the impact of potential exploitation."
+  ],
+    "relatedLinks": [
+      "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+      "https://brightsec.com/blog/broken-access-control-attack-examples-and-4-defensive-measures/"
+    ]
+  },
+  {
+    "name": "Cryptographic Failures",
+    "issueBackground": "Cryptographic failures occur when sensitive data is not adequately protected during storage or transmission due to weak encryption, misconfigured cryptographic settings, or the use of insecure algorithms. This vulnerability can lead to the exposure of sensitive information, such as passwords, credit card numbers, or personally identifiable information (PII), and compromise the confidentiality and integrity of the application.",
+    "Recommendations" :[ 
+      "Implement industry-standard algorithms, such as AES-256 for encryption and SHA-256 or stronger for hashing.",
+      "Avoid outdated or weak algorithms like MD5, SHA-1, or DES.",
+      "Use secure protocols, such as HTTPS (TLS 1.2 or higher), to encrypt data during transmission.",
+      "Enforce the use of secure ciphers and disable weak ones.",
+      "Encrypt sensitive data stored in databases, files, or backups using strong encryption algorithms.",
+      "Use encryption keys stored securely in a hardware security module (HSM) or key management service (KMS).",
+      "Rotate encryption keys periodically and after any suspected compromise.",
+      "Do not hardcode keys or store them in source code repositories.",
+      "Rely on well-tested cryptographic libraries and frameworks instead of attempting to create custom cryptographic solutions.",
+      "Hash passwords with algorithms designed for password storage, such as bcrypt, Argon2, or PBKDF2.",
+      "Use appropriate work factors to make brute-forcing impractical.",
+      "Remove support for outdated protocols like SSL and insecure cipher suites to reduce attack surface.",
+      "Enable HTTP Strict Transport Security (HSTS) to force the use of HTTPS for all communications."
+  ],
+    "relatedLinks": [
+      "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/",
+      "https://aurigait.com/blog/owasp-cryptographic-failure-information-disclosure-vulnerabilities/"
+    ]
+  },
+  {
+    "name": "Vulnerable and Outdated Components",
+    "issueBackground": "Vulnerable and outdated components arise when an application uses third-party libraries, frameworks, or software that contain known vulnerabilities. Attackers can exploit these vulnerabilities to compromise the application's security, leading to data breaches, unauthorized access, or system compromise. The risk is heightened when organizations fail to patch or update these components promptly or lack awareness of dependencies in their software stack.",
+    "Recommendations" :[ 
+      "Monitor and update all third-party libraries, frameworks, and software to their latest stable versions.",
+      "Use tools like Dependabot, Snyk, or OWASP Dependency-Check to identify and manage outdated dependencies.",
+      "Keep an up-to-date inventory of all third-party components, including their versions and sources.",
+      "Identify direct and transitive dependencies for comprehensive tracking.",
+      "Download components only from trusted repositories or official websites to reduce the risk of tampered files.",
+      "Regularly review vulnerability databases like the NVD (National Vulnerability Database) or use automated tools to detect vulnerabilities in components.",
+      "Implement a policy for testing and deploying patches in a timely manner.",
+      "Prioritize critical and high-severity patches for immediate action.",
+      "Periodically audit the application to identify and remove unused or obsolete libraries and plugins.",
+      "Use dependency management tools to define strict versioning policies (e.g., npm, Maven, Pipenv).",
+      "Enable lock files (e.g., package-lock.json, Pipfile.lock) to maintain version consistency.",
+      "If an update is not immediately feasible, isolate vulnerable components to minimize their exposure."
+  ],
+    "relatedLinks": [
+      "https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/",
+      "https://www.vumetric.com/blog/owasp-top-10-a06-vulnerable-and-outdated-components-explained/"
+    ]
+  },
+  {
+    "name": "Server-Side Request Forgery (SSRF)",
+    "issueBackground": "Server-Side Request Forgery (SSRF) occurs when an attacker manipulates an application to send unauthorized requests from the server to other internal or external systems. This can lead to unauthorized access to sensitive internal resources, such as metadata services, private APIs, or network services. SSRF vulnerabilities often arise due to insufficient input validation on URLs or endpoints provided by users.",
+    "Recommendations" :[ 
+      "Implement strict input validation to only allow URLs or endpoints that match a predefined whitelist.",
+      "Reject requests with IP addresses (e.g., 127.0.0.1, private ranges like 10.0.0.0/8, 192.168.0.0/16, etc.) or URLs with non-standard schemes like file://.",
+      "Avoid directly including user-provided input in requests. Use parameterized APIs to construct requests securely.",
+      "Isolate systems and services in different network zones to prevent unauthorized access.",
+      "Block requests from the server to internal networks, unless explicitly required.",
+      "Limit outbound connections from the server to trusted domains or IP ranges.",
+      "Configure firewalls to block unnecessary egress traffic.",
+      "If possible, disable access to protocols such as HTTP, HTTPS, FTP, or Gopher unless required by the application.",
+      "Validate and resolve domain names to ensure they point to authorized IP ranges.",
+      "Prevent exploitation via DNS rebinding by rechecking IP addresses before making requests.",
+      "Block direct access to metadata services, such as AWS EC2 metadata (169.254.169.254) or GCP metadata endpoints, from the application.",
+      "If metadata access is necessary, restrict it to only specific, secure APIs."
+  ],
+    "relatedLinks": [
+      "https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/",
+      "https://www.imperva.com/learn/application-security/server-side-request-forgery-ssrf/"
+    ]
+  },
+  {
+    "name": "Stored Cross-Site Scripting (XSS)",
+    "issueBackground": "Stored Cross-Site Scripting (XSS), also known as persistent XSS, occurs when malicious scripts are injected into a web application and stored in its database or other persistent storage. When unsuspecting users access the affected page or content, the script is executed in their browsers, often without their knowledge. This can lead to account compromise, session hijacking, data theft, or even malware delivery.",
+    "Recommendations" :[ 
+      "Validate and sanitize all user inputs on the server side to remove potentially malicious code.",
+      "Use libraries like OWASP Java Encoder or DOMPurify for safe handling of HTML input.",
+      "Escape special characters in user-generated content before rendering it on the web page.",
+      "Use context-aware escaping (e.g., escape for HTML, JavaScript, or URLs).",
+      "Define a strict CSP header to restrict the sources of executable scripts (e.g., script-src 'self';).",
+      "Block inline scripts using CSP rules.",
+      "Set the HttpOnly flag on cookies to prevent them from being accessed via JavaScript.",
+      "Use the Secure flag to ensure cookies are transmitted only over HTTPS.",
+      "Restrict or sanitize the use of elements such as <script>, <iframe>, <img onerror>, or event handlers like onmouseover.",
+      "If the application allows rich text input (e.g., via WYSIWYG editors), limit allowed tags and attributes to a safe subset.",
+      "Leverage built-in security mechanisms in web frameworks, such as Angular's or React's DOM sanitization.",
+      "Use parameterized queries or prepared statements to prevent script injection into databases."
+  ],
+    "relatedLinks": [
+      "https://www.imperva.com/learn/application-security/cross-site-scripting-xss-attacks/",
+      "https://owasp.org/www-community/attacks/xss/"
+    ]
+  },
+  {
+    "name": "Reflected Cross-Site Scripting (XSS)",
+    "issueBackground": "Reflected Cross-Site Scripting (XSS) occurs when an application immediately reflects user-supplied input in a web page without proper sanitization or validation. Unlike stored XSS, the malicious script is not stored in the application but is included in a URL or request and executed in the victim's browser when the crafted link is clicked. This type of XSS can be exploited to steal session tokens, impersonate users, or spread malware.",
+    "Recommendations" :[ 
+      "Validate and sanitize all user inputs on the server side to remove potentially malicious code.",
+      "Use libraries like OWASP Java Encoder or DOMPurify for safe handling of HTML input.",
+      "Escape special characters in user-generated content before rendering it on the web page.",
+      "Use context-aware escaping (e.g., escape for HTML, JavaScript, or URLs).",
+      "Define a strict CSP header to restrict the sources of executable scripts (e.g., script-src 'self';).",
+      "Block inline scripts using CSP rules.",
+      "Set the HttpOnly flag on cookies to prevent them from being accessed via JavaScript.",
+      "Use the Secure flag to ensure cookies are transmitted only over HTTPS.",
+      "Restrict or sanitize the use of elements such as <script>, <iframe>, <img onerror>, or event handlers like onmouseover.",
+      "If the application allows rich text input (e.g., via WYSIWYG editors), limit allowed tags and attributes to a safe subset.",
+      "Leverage built-in security mechanisms in web frameworks, such as Angular's or React's DOM sanitization.",
+      "Use parameterized queries or prepared statements to prevent script injection into databases."
+  ],
+    "relatedLinks": [
+      "https://www.imperva.com/learn/application-security/reflected-xss-attacks/",
+      "https://owasp.org/www-community/attacks/xss/"
+    ]
+  },
+  {
+    "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
       ""
