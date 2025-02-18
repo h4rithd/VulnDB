@@ -336,6 +336,22 @@
     ]
   },
   {
+    "name": "OTP Bypass via Brute Force",
+    "issueBackground": "One-Time Password (OTP) bypass via brute force occurs when an application does not properly restrict the number of OTP submission attempts, allowing attackers to systematically try different OTP combinations until they find the correct one. This vulnerability is often exploited when there is no rate limiting or CAPTCHA protection, the OTP length is too short (e.g., 4-6 digits), the OTP remains valid for an extended period, or the application fails to block or alert on excessive failed OTP attempts. If successfully exploited, an attacker can gain unauthorized access to user accounts, bypass multi-factor authentication (MFA), and compromise sensitive data.",
+    "Recommendations" :[ 
+      "Restrict the number of OTP attempts per user (e.g., 3-5 failed attempts before account lockout).",
+      "Use exponential backoff or introduce a cooldown period after multiple failed attempts.",
+      "Require CAPTCHA verification after a few failed OTP attempts to prevent automated attacks.",
+      "Use longer OTPs (e.g., 8+ characters) instead of 4-6 digit codes.",
+      "Reduce OTP validity time to a short window (e.g., 30-60 seconds).",
+      "Trigger alerts for excessive failed attempts from a single IP or user account."
+  ],
+    "relatedLinks": [
+      "https://hackerone.com/reports/1060541",
+      "https://cwe.mitre.org/data/definitions/288.html"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
