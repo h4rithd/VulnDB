@@ -351,6 +351,19 @@
       "https://cwe.mitre.org/data/definitions/288.html"
     ]
   },
+   {
+    "name": "OTP Flooding",
+    "issueBackground": "OTP Flooding Attack occurs when an attacker repeatedly requests OTPs for a target phone number or email, overwhelming the recipient with a large volume of OTP messages. This can lead to Denial of Service (DoS) for the victim, making it difficult for them to access their account or receive legitimate OTPs. Attackers may also exploit OTP flooding to increase SMS/email costs for the service provider or use it as a distraction for other attacks, such as account takeover or social engineering.",
+    "Recommendations" :[ 
+      "Restrict the number of OTP requests per user within a defined time frame (e.g., 3 attempts per 10 minutes).",
+      "Require CAPTCHA verification after a few failed OTP attempts to prevent automated abuse.",
+      "Ensure a newly requested OTP invalidates the previous one, preventing OTP flooding abuse."
+  ],
+    "relatedLinks": [
+      "https://www.ctm360.com/blogs/otp-sms-attack",
+      "https://ringcaptcha.com/voice-sms-otp-resource-exhaustion-attacks"
+    ]
+  },
   {
     "name": "",
     "issueBackground": "",
