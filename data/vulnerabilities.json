@@ -13,8 +13,8 @@
       "Provide training on secure coding techniques to minimize the risk of introducing vulnerabilities."
   ],
     "relatedLinks": [
-      "https://www.imperva.com/learn/application-security/html-injection/",
-      "https://www.invicti.com/learn/html-injection/"
+      "[1] https://www.imperva.com/learn/application-security/html-injection/",
+      "[2] https://www.invicti.com/learn/html-injection/"
     ]    
   },
   {
@@ -30,8 +30,8 @@
       "Perform regular penetration testing, secure code reviews, and vulnerability scans to identify and mitigate IDOR risks."
   ],
     "relatedLinks": [
-      "https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference",
-      "https://www.invicti.com/learn/insecure-direct-object-references-idor/"
+      "[1] https://www.varonis.com/blog/what-is-idor-insecure-direct-object-reference",
+      "[2] https://www.invicti.com/learn/insecure-direct-object-references-idor/"
     ]
   },
   {
@@ -49,8 +49,8 @@
       "Ensure proper cleanup of server-side session data upon logout."
   ],
     "relatedLinks": [
-      "https://owasp.org/www-project-mobile-top-10/2014-risks/m9-improper-session-handling",
-      "https://help.fluidattacks.com/portal/en/kb/articles/criteria-vulnerabilities-076"
+      "[1] https://owasp.org/www-project-mobile-top-10/2014-risks/m9-improper-session-handling",
+      "[2] https://help.fluidattacks.com/portal/en/kb/articles/criteria-vulnerabilities-076"
     ]
   },
   {
@@ -65,8 +65,8 @@
       "Test the effectiveness of role and permission management controls."
   ],
     "relatedLinks": [
-      "https://www.beyondtrust.com/blog/entry/privilege-escalation-attack-defense-explained",
-      "https://www.imperva.com/learn/data-security/privilege-escalation/"
+      "[1] https://www.beyondtrust.com/blog/entry/privilege-escalation-attack-defense-explained",
+      "[2] https://www.imperva.com/learn/data-security/privilege-escalation/"
     ]
   },
   {
@@ -79,8 +79,8 @@
       "Implement JavaScript-based frame-busting techniques to detect and prevent your content from being loaded in iframes."
   ],
     "relatedLinks": [
-      "https://www.imperva.com/learn/application-security/clickjacking/",
-      "https://www.pingidentity.com/en/resources/cybersecurity-fundamentals/threats/clickjacking.html"
+      "[1] https://www.imperva.com/learn/application-security/clickjacking/",
+      "[2] https://www.pingidentity.com/en/resources/cybersecurity-fundamentals/threats/clickjacking.html"
     ]
   },
   {
@@ -93,8 +93,8 @@
       "Mark cookies with Secure, HttpOnly, and SameSite=Strict attributes to prevent them from being accessed via JavaScript or sent in cross-site requests."
   ],
     "relatedLinks": [
-      "https://owasp.org/www-community/attacks/Session_fixation",
-      "https://www.acunetix.com/vulnerabilities/web/session-id-in-url/"
+      "[1] https://owasp.org/www-community/attacks/Session_fixation",
+      "[2] https://www.acunetix.com/vulnerabilities/web/session-id-in-url/"
     ]
   },
   {
@@ -107,8 +107,8 @@
       "Train developers to identify and mitigate resource abuse risks. Inform users about acceptable usage policies."
   ],
     "relatedLinks": [
-      "https://www.indusface.com/blog/api42019-lack-of-resources-rate-limiting/",
-      "https://apisecurity.io/encyclopedia/content/owasp/api4-lack-of-resources-and-rate-limiting.htm"
+      "[1] https://www.indusface.com/blog/api42019-lack-of-resources-rate-limiting/",
+      "[2] https://apisecurity.io/encyclopedia/content/owasp/api4-lack-of-resources-and-rate-limiting.htm"
     ]
   },
   {
@@ -121,8 +121,8 @@
       "Avoid storing sensitive information like API keys, passwords, or credentials in source code. Use secure vaults or environment variables for secrets management."
   ],
     "relatedLinks": [
-      "https://cwe.mitre.org/data/definitions/200.html",
-      "https://www.hackerone.com/blog/how-information-disclosure-vulnerability-led-critical-data-exposure"
+      "[1] https://cwe.mitre.org/data/definitions/200.html",
+      "[2] https://www.hackerone.com/blog/how-information-disclosure-vulnerability-led-critical-data-exposure"
     ]
   },
   {
@@ -135,8 +135,8 @@
       "Ensure proper checks are in place to confirm the authenticity of the user and their permission to access or modify specific resources."
   ],
     "relatedLinks": [
-      "https://formspree.io/blog/server-side-validation/",
-      "https://www.packetlabs.net/posts/input-validation/"
+      "[1] https://formspree.io/blog/server-side-validation/",
+      "[2] https://www.packetlabs.net/posts/input-validation/"
     ]
   },
   {
@@ -149,8 +149,8 @@
       "Introduce CAPTCHA for repeated login attempts, password resets, or other actions that could reveal user account information."
   ],
     "relatedLinks": [
-      "https://stytch.com/blog/what-is-an-enumeration-attack/",
-      "https://www.virtuesecurity.com/kb/username-enumeration/"
+      "[1] https://stytch.com/blog/what-is-an-enumeration-attack/",
+      "[2] https://www.virtuesecurity.com/kb/username-enumeration/"
     ]
   },
   {
@@ -165,8 +165,8 @@
       "Verify user identity through multiple secure methods (e.g., email verification, MFA) during password reset or account recovery processes."
   ],
     "relatedLinks": [
-      "https://www.imperva.com/learn/application-security/account-takeover-ato/",
-      "https://www.fortinet.com/resources/cyberglossary/account-takeover"
+      "[1] https://www.imperva.com/learn/application-security/account-takeover-ato/",
+      "[2] https://www.fortinet.com/resources/cyberglossary/account-takeover"
     ]
   },
   {
@@ -180,8 +180,8 @@
       "Keep detailed logs of access attempts and actions performed within the system. Regularly review these logs to detect and respond to unauthorized access or activities."
   ],
     "relatedLinks": [
-      "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
-      "https://cwe.mitre.org/data/definitions/285.html"
+      "[1] https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+      "[2] https://cwe.mitre.org/data/definitions/285.html"
     ]
   },
   {
@@ -201,8 +201,8 @@
       "Lock or expire idle sessions after a predefined duration."
   ],
     "relatedLinks": [
-      "https://owasp.org/www-project-mobile-top-10/2014-risks/m9-improper-session-handling",
-      "https://knowledge-base.secureflag.com/vulnerabilities/broken_authentication/broken_session_management_vulnerability.html"
+      "[1] https://owasp.org/www-project-mobile-top-10/2014-risks/m9-improper-session-handling",
+      "[2] https://knowledge-base.secureflag.com/vulnerabilities/broken_authentication/broken_session_management_vulnerability.html"
     ]
   },
   {
@@ -220,8 +220,8 @@
       "Limit permissions to the minimum required for a user's role or task to reduce the impact of potential exploitation."
   ],
     "relatedLinks": [
-      "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
-      "https://brightsec.com/blog/broken-access-control-attack-examples-and-4-defensive-measures/"
+      "[1] https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+      "[2] https://brightsec.com/blog/broken-access-control-attack-examples-and-4-defensive-measures/"
     ]
   },
   {
@@ -243,8 +243,8 @@
       "Enable HTTP Strict Transport Security (HSTS) to force the use of HTTPS for all communications."
   ],
     "relatedLinks": [
-      "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/",
-      "https://aurigait.com/blog/owasp-cryptographic-failure-information-disclosure-vulnerabilities/"
+      "[1] https://owasp.org/Top10/A02_2021-Cryptographic_Failures/",
+      "[2] https://aurigait.com/blog/owasp-cryptographic-failure-information-disclosure-vulnerabilities/"
     ]
   },
   {
@@ -265,8 +265,8 @@
       "If an update is not immediately feasible, isolate vulnerable components to minimize their exposure."
   ],
     "relatedLinks": [
-      "https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/",
-      "https://www.vumetric.com/blog/owasp-top-10-a06-vulnerable-and-outdated-components-explained/"
+      "[1] https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/",
+      "[2] https://www.vumetric.com/blog/owasp-top-10-a06-vulnerable-and-outdated-components-explained/"
     ]
   },
   {
@@ -287,8 +287,8 @@
       "If metadata access is necessary, restrict it to only specific, secure APIs."
   ],
     "relatedLinks": [
-      "https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/",
-      "https://www.imperva.com/learn/application-security/server-side-request-forgery-ssrf/"
+      "[1] https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/",
+      "[2] https://www.imperva.com/learn/application-security/server-side-request-forgery-ssrf/"
     ]
   },
   {
@@ -309,8 +309,8 @@
       "Use parameterized queries or prepared statements to prevent script injection into databases."
   ],
     "relatedLinks": [
-      "https://www.imperva.com/learn/application-security/cross-site-scripting-xss-attacks/",
-      "https://owasp.org/www-community/attacks/xss/"
+      "[1] https://www.imperva.com/learn/application-security/cross-site-scripting-xss-attacks/",
+      "[2] https://owasp.org/www-community/attacks/xss/"
     ]
   },
   {
@@ -331,8 +331,8 @@
       "Use parameterized queries or prepared statements to prevent script injection into databases."
   ],
     "relatedLinks": [
-      "https://www.imperva.com/learn/application-security/reflected-xss-attacks/",
-      "https://owasp.org/www-community/attacks/xss/"
+      "[1] https://www.imperva.com/learn/application-security/reflected-xss-attacks/",
+      "[2] https://owasp.org/www-community/attacks/xss/"
     ]
   },
   {
@@ -347,8 +347,8 @@
       "Trigger alerts for excessive failed attempts from a single IP or user account."
   ],
     "relatedLinks": [
-      "https://hackerone.com/reports/1060541",
-      "https://cwe.mitre.org/data/definitions/288.html"
+      "[1] https://hackerone.com/reports/1060541",
+      "[2] https://cwe.mitre.org/data/definitions/288.html"
     ]
   },
    {
@@ -360,8 +360,23 @@
       "Ensure a newly requested OTP invalidates the previous one, preventing OTP flooding abuse."
   ],
     "relatedLinks": [
-      "https://www.ctm360.com/blogs/otp-sms-attack",
-      "https://ringcaptcha.com/voice-sms-otp-resource-exhaustion-attacks"
+      "[1] https://www.ctm360.com/blogs/otp-sms-attack",
+      "[2] https://ringcaptcha.com/voice-sms-otp-resource-exhaustion-attacks"
+    ]
+  },
+  {
+    "name": "Business Logic Bypass",
+    "issueBackground": "A Business Logic Bypass occurs when an attacker exploits flaws in the application's workflow or logic to perform unintended actions that violate security policies. Unlike traditional vulnerabilities, this type of attack does not rely on injecting malicious code but instead abuses the intended functionality of the application. Examples include bypassing payment validation, skipping authentication steps, exploiting race conditions, or modifying request parameters to gain unauthorized access or discounts. If successfully exploited, business logic flaws can lead to financial fraud, data leakage, privilege escalation, or service disruption.",
+    "Recommendations" :[ 
+      "Ensure that all critical business rules are enforced server-side, preventing tampering with request parameters.",
+      "Apply proper authorization checks at every step of the business workflow to prevent unauthorized actions.",
+      "Set up logging and alerting mechanisms to detect suspicious patterns, such as unexpected transaction amounts or unauthorized access attempts.",
+      "Prevent abuse by limiting the number of requests per user and implementing CAPTCHA or bot detection mechanisms.",
+      "Ensure that critical operations, such as payment processing or account modifications, follow a secure and predictable sequence."
+  ],
+    "relatedLinks": [
+      "[1] https://cwe.mitre.org/data/definitions/840.html",
+      "[2] https://csrc.nist.gov/publications/detail/sp/800-218/final"
     ]
   },
   {
@@ -371,8 +386,8 @@
       ""
   ],
     "relatedLinks": [
-      "",
-      ""
+      "[1] ",
+      "[2] "
     ]
   }
 ]
