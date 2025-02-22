@@ -437,7 +437,25 @@
       "[2] https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html"
     ]
   },
-    {
+  {
+    "name": "Unrestricted File Upload",
+    "issueBackground": "Unrestricted File Upload occurs when an application allows users to upload files without properly validating the content, type, or size of the files. This vulnerability can be exploited by attackers to upload malicious files (such as web shells, scripts, or executable files) to the server, potentially leading to remote code execution, unauthorized access, data breaches, or full server compromise. Without proper validation, attackers can upload files that can be executed or used to gain unauthorized access to the system. In many cases, web applications might improperly trust file extensions or rely solely on client-side checks, which can be easily bypassed.",
+    "Recommendations" :[ 
+      "Restrict file uploads to specific, trusted file types (e.g., only image formats like .jpg, .png, or .gif for image uploads).",
+      "Check the MIME type of files both on the client and server side to ensure that uploaded files are of the expected format.",
+      "Do not rely solely on file extensions, as they can be easily manipulated.",
+      "Implement file size restrictions to prevent users from uploading excessively large files that could overwhelm the server or be used for DoS attacks.",
+      "Set a reasonable maximum file size based on the type of file being uploaded (e.g., 10MB for images, 50MB for documents).",
+      "Store uploaded files outside of the web root directory (i.e., outside of publicly accessible folders). This prevents attackers from directly accessing uploaded files via a browser.",
+      "Rename uploaded files to prevent the attacker from overwriting existing files or executing uploaded files. A common approach is to assign a random file name and store metadata in a database.",
+      "Use antivirus software or other malware scanning tools to scan all uploaded files for potential threats before they are stored or processed."
+  ],
+    "relatedLinks": [
+      "[1] https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload",
+      "[2] https://owasp.deteact.com/cheat/cheatsheets/Protect_FileUpload_Against_Malicious_File.html"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
