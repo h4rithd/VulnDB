@@ -406,6 +406,38 @@
     ]
   },
   {
+    "name": "Insecure Design Allows Unauthorized Data Access",
+    "issueBackground": "Authentication and authorization are fundamental security controls that restrict access to sensitive resources based on user identity and permissions. When an API endpoint is accessible without authentication, it allows unauthenticated users (including attackers) to retrieve data or perform actions intended for logged-in users. This issue typically arises due to misconfigured access controls or unintentional exposure of an endpoint. Attackers can exploit this flaw to retrieve sensitive information, manipulate data, or escalate privileges within the system.",
+    "Recommendations" :[ 
+      "Ensure all sensitive endpoints require authentication (e.g., using JWT, OAuth 2.0).",
+      "Use Role-Based Access Control (RBAC) or Attribute-Based Access Control (ABAC) to restrict access based on user roles or attributes.",
+      "Ensure users can only access data they are authorized to view or modify.",
+      "Ensure API keys, JWT tokens, and other credentials are securely stored and transmitted over HTTPS.",
+      "Implement rate limiting to mitigate brute-force or mass data extraction attempts.",
+      "Add proper security headers like CORS and X-Content-Type-Options to secure API endpoints."
+  ],
+    "relatedLinks": [
+      "[1] https://cqr.company/web-vulnerabilities/insufficient-authentication-authorization/",
+      "[2] https://www.google.com/search?client=safari&rls=en&q=Insufficient+Authentication+and+Authorization&ie=UTF-8&oe=UTF-8"
+    ]
+  },
+  {
+    "name": "Insufficient Authentication and Authorization",
+    "issueBackground": "Insufficient Authentication and Authorization vulnerabilities occur when an application fails to properly verify the identity of users or enforce proper access controls to protect resources. Authentication is the process of verifying the identity of a user, while authorization determines what resources a user can access based on their identity or role. Insufficient authentication happens when weak authentication mechanisms (e.g., easy-to-guess passwords, lack of multi-factor authentication) are used, allowing unauthorized users to access the application. Insufficient authorization occurs when there are improper access controls, allowing users to access data or perform actions they shouldn’t be permitted to. These vulnerabilities can result in unauthorized access to sensitive data, privilege escalation, data modification, or full account compromise.",
+    "Recommendations" :[ 
+      "Use multi-factor authentication (MFA) to add an additional layer of security beyond just usernames and passwords.",
+      "Enforce strong password policies, including complexity requirements (e.g., a combination of letters, numbers, and symbols).",
+      "Employ account lockouts after multiple failed login attempts to prevent brute force attacks.",
+      "Ensure that users can only access data and resources that are appropriate for their role or authorization level.",
+      "Implement secure session management practices, such as session timeouts and secure cookie attributes (e.g., HttpOnly, Secure, SameSite).",
+      "Ensure that session tokens are regenerated after authentication to prevent session fixation attacks."
+  ],
+    "relatedLinks": [
+      "[1] https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/",
+      "[2] https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html"
+    ]
+  },
+    {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
