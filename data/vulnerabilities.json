@@ -490,6 +490,20 @@
     ]
   },
   {
+    "name": "Vulnerable JavaScript Dependency",
+    "issueBackground": "Vulnerable JavaScript Dependency occurs when an application relies on outdated or insecure third-party JavaScript libraries that contain known security vulnerabilities. Attackers can exploit these vulnerabilities to perform various attacks such as Cross-Site Scripting (XSS), Remote Code Execution (RCE), or Supply Chain Attacks. These vulnerabilities often arise due to missing security updates, unpatched libraries, or dependencies that are no longer maintained. Applications that fail to update their dependencies expose themselves to risks that could compromise user data, authentication mechanisms, and overall system integrity.",
+    "Recommendations" :[ 
+      "Keep all JavaScript libraries up to date by monitoring security advisories and patch releases.",
+      "Use package managers like npm, yarn, or pnpm to manage and track dependencies.",
+      "Identify and remove outdated or unnecessary JavaScript libraries from the project.",
+      "Replace deprecated dependencies with actively maintained alternatives."
+  ],
+    "relatedLinks": [
+      "[1] https://owasp.org/www-project-dependency-check/",
+      "[2] https://security.snyk.io/"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
