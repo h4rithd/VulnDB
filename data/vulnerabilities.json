@@ -473,6 +473,24 @@
     ]
   },
   {
+    "name": "Improper Error Handling",
+    "issueBackground": "Improper Error Handling occurs when an application fails to handle errors securely, exposing sensitive system details, stack traces, database queries, or internal implementation logic. Attackers can exploit this information to identify security vulnerabilities, such as SQL injection points, directory structures, or authentication mechanisms. Detailed error messages may also reveal user enumeration risks or cryptographic details, aiding in further attacks. Secure applications should return generic error messages while logging detailed errors for internal debugging.",
+    "Recommendations" :[ 
+      "Display user-friendly, generic error messages that do not expose sensitive system details.",
+      "Avoid displaying stack traces, SQL errors, or file paths in the response.",
+      "Log detailed error messages on the server for debugging while preventing exposure to users.",
+      "Store logs securely and restrict access to authorized personnel only.",
+      "Ensure that debugging features (e.g., verbose error messages, stack traces) are disabled in production environments.",
+      "Implement try-catch blocks to gracefully handle unexpected errors.",
+      "Avoid exposing error details through API responses or user interfaces.",
+      "Use Secure Configuration for Web Servers & Frameworks:"
+  ],
+    "relatedLinks": [
+      "[1] https://cwe.mitre.org/data/definitions/209.html",
+      "[2] https://owasp.deteact.com/cheat/cheatsheets/Error_Handling_Cheat_Sheet.html"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
