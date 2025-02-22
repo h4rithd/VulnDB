@@ -455,6 +455,24 @@
     ]
   },
   {
+    "name": "Concurrent Login Sessions",
+    "issueBackground": "Concurrent Login Sessions refer to a security weakness where an application allows multiple active sessions for the same user account without restrictions. This can lead to security risks such as unauthorized access, session hijacking, and account takeover. If an attacker gains access to a user's credentials, they can log in and maintain persistent access without the legitimate user noticing. Additionally, in cases of shared credentials or leaked passwords, multiple active sessions can make it difficult to track unauthorized usage. Secure applications should implement session management policies to limit concurrent logins and notify users of multiple active sessions.",
+    "Recommendations" :[ 
+      "Allow only one active session per user at a time, logging out the previous session when a new login occurs.",
+      "Implement a configurable policy where users can choose whether to allow multiple active sessions.",
+      "Display a list of active sessions to users in their account settings.",
+      "Send notifications via email or SMS when a new session is initiated from an unrecognized device or location.",
+      "Set session expiration times to automatically log out inactive users.",
+      "Implement re-authentication for sensitive actions after a period of inactivity.",
+      "Store session tokens securely and use HTTP-only, Secure, and SameSite cookie attributes.",
+      "Regenerate session tokens upon login to prevent session fixation attacks."
+  ],
+    "relatedLinks": [
+      "[1] https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Session_Management_Cheat_Sheet.md",
+      "[2] https://cwe.mitre.org/data/definitions/613.html"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
