@@ -482,8 +482,7 @@
       "Store logs securely and restrict access to authorized personnel only.",
       "Ensure that debugging features (e.g., verbose error messages, stack traces) are disabled in production environments.",
       "Implement try-catch blocks to gracefully handle unexpected errors.",
-      "Avoid exposing error details through API responses or user interfaces.",
-      "Use Secure Configuration for Web Servers & Frameworks:"
+      "Avoid exposing error details through API responses or user interfaces."
   ],
     "relatedLinks": [
       "[1] https://cwe.mitre.org/data/definitions/209.html",
