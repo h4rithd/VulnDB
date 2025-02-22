@@ -380,6 +380,19 @@
     ]
   },
   {
+    "name": "Password Hashes Exposed in Response",
+    "issueBackground": "The exposure of password hashes in the response is a critical security vulnerability that can lead to account compromise. Password hashes should be treated as sensitive information and must never be exposed to users, even if they are hashed using a secure algorithm. Attackers who gain access to these hashes can attempt offline brute-force attacks or leverage them for credential stuffing if users reuse passwords across multiple services. This issue indicates improper handling of sensitive data and a failure to implement secure response filtering, violating best practices such as OWASP’s recommendations on secure password storage and data exposure prevention.",
+    "Recommendations" :[ 
+      "Ensure that password hashes are never included in API or web responses. Modify the backend logic to exclude the `password_hash` field when returning user data",
+      "If debugging or logging is required, ensure that sensitive data like password hashes are logged securely in a protected server-side log file, rather than exposing them in client responses",
+      "Ensure that passwords are hashed using a strong algorithm, such as bcrypt, Argon2, or PBKDF2, with a sufficiently high cost factor. Avoid weak hashing algorithms like MD5 or SHA-1, as they are susceptible to brute-force attack"
+  ],
+    "relatedLinks": [
+      "[1] https://cwe.mitre.org/data/definitions/836.html",
+      "[2] https://turingsecure.com/knowledge-base/issues/password-hash-disclosure/"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
