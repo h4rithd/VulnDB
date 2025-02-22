@@ -393,6 +393,25 @@
     ]
   },
   {
+    "name": "Directory Traversal",
+    "issueBackground": "Directory Traversal, also known as Path Traversal, is a security vulnerability that allows an attacker to access files and directories that are stored outside the intended directory, typically through manipulation of file path inputs. By using special character sequences such as '../' (dot-dot-slash), attackers can navigate up the directory tree, potentially gaining access to sensitive files, configuration files, logs, or system files that should not be publicly accessible. This vulnerability can lead to unauthorized information disclosure, data manipulation, or further system exploitation.",
+    "Recommendations" :[ 
+      "Ensure that all user inputs related to file or directory names are properly sanitized and validated. This includes stripping or rejecting characters like ../, ..%2f, or any other sequences that could traverse directories.",
+      "Use strict input validation to only accept file names or paths that meet specific patterns or are whitelisted.",
+      "Avoid using user-controlled relative paths for file access. Use absolute paths whenever possible to ensure that access is restricted to the intended directory.",
+      "Use methods that return the canonical or absolute path of files to prevent manipulation of file paths (e.g., realpath() in PHP).",
+      "Implement proper access control mechanisms to restrict access to sensitive files or directories. Ensure that users or processes only have permission to access",
+      "Use least privilege principles for file permissions, ensuring that only authorized users or processes can access critical files.",
+      "Restrict file access to a specific directory or set of directories by checking that the requested file path does not navigate outside of this directory.",
+      "Implement \"chroot\" or other sandboxing mechanisms to limit access to file systems.",
+      "Use trusted libraries and secure functions for handling file paths (e.g., Path.Combine() in .NET, os.path.join() in Python) to avoid potential directory traversal issues."
+  ],
+    "relatedLinks": [
+      "[1] https://www.imperva.com/learn/application-security/directory-traversal/",
+      "[2] https://owasp.org/www-community/attacks/Path_Traversal"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
