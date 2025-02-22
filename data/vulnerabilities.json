@@ -504,6 +504,34 @@
     ]
   },
   {
+    "name": "Cookie Without HttpOnly Flag Set",
+    "issueBackground": "Cookies Without the HttpOnly Flag pose a security risk because they can be accessed via client-side JavaScript, making them vulnerable to Cross-Site Scripting (XSS) attacks. If an attacker exploits an XSS vulnerability, they can steal session cookies, allowing them to hijack user sessions or perform unauthorized actions. The HttpOnly flag prevents client-side scripts from accessing the cookie, mitigating the risk of theft via JavaScript-based attacks.",
+    "Recommendations" :[ 
+      "Set the HttpOnly flag for all session and authentication-related cookies to prevent JavaScript access.",
+      "Combine the HttpOnly flag with the Secure flag to ensure cookies are only transmitted over HTTPS.",
+      "Reduce the impact of XSS by enforcing a strong CSP that limits script execution sources.",
+      "Since HttpOnly helps mitigate XSS risks, ensure the application is tested for XSS vulnerabilities and apply necessary fixes."
+  ],
+    "relatedLinks": [
+      "[1] https://www.invicti.com/learn/cookie-security-flags/",
+      "[2] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie"
+    ]
+  },
+  {
+    "name": "TLS Cookie Without Secure Flag",
+    "issueBackground": "Cookies Without the Secure Flag are vulnerable to being transmitted over unencrypted HTTP connections, exposing them to interception by attackers via Man-in-the-Middle (MitM) attacks. When the Secure flag is not set, session tokens, authentication cookies, and other sensitive data can be leaked if a user accidentally accesses the application over an insecure connection. The Secure flag ensures that cookies are only transmitted over HTTPS, reducing the risk of session hijacking and credential theft.",
+    "Recommendations" :[ 
+      "Ensure that session and authentication cookies include the Secure flag so they are only sent over HTTPS.",
+      "Use HSTS (HTTP Strict Transport Security) to force all connections over HTTPS.",
+      "Redirect all HTTP traffic to HTTPS using server-side configurations (e.g., Nginx, Apache, or Cloudflare settings).",
+      "Combine Secure with HttpOnly and SameSite for stronger protection."
+  ],
+    "relatedLinks": [
+      "[1] https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+      "[2] https://datatracker.ietf.org/doc/html/rfc6265"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
