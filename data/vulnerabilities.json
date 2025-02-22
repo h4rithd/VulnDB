@@ -296,16 +296,10 @@
     "issueBackground": "Stored Cross-Site Scripting (XSS), also known as persistent XSS, occurs when malicious scripts are injected into a web application and stored in its database or other persistent storage. When unsuspecting users access the affected page or content, the script is executed in their browsers, often without their knowledge. This can lead to account compromise, session hijacking, data theft, or even malware delivery.",
     "Recommendations" :[ 
       "Validate and sanitize all user inputs on the server side to remove potentially malicious code.",
-      "Use libraries like OWASP Java Encoder or DOMPurify for safe handling of HTML input.",
       "Escape special characters in user-generated content before rendering it on the web page.",
-      "Use context-aware escaping (e.g., escape for HTML, JavaScript, or URLs).",
       "Define a strict CSP header to restrict the sources of executable scripts (e.g., script-src 'self';).",
-      "Block inline scripts using CSP rules.",
       "Set the HttpOnly flag on cookies to prevent them from being accessed via JavaScript.",
       "Use the Secure flag to ensure cookies are transmitted only over HTTPS.",
-      "Restrict or sanitize the use of elements such as <script>, <iframe>, <img onerror>, or event handlers like onmouseover.",
-      "If the application allows rich text input (e.g., via WYSIWYG editors), limit allowed tags and attributes to a safe subset.",
-      "Leverage built-in security mechanisms in web frameworks, such as Angular's or React's DOM sanitization.",
       "Use parameterized queries or prepared statements to prevent script injection into databases."
   ],
     "relatedLinks": [
