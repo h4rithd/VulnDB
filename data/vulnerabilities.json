@@ -532,6 +532,21 @@
     ]
   },
   {
+    "name": "Email Flooding Attack",
+    "issueBackground": "Email Flooding Attack occurs when an attacker exploits a system’s email-sending functionality to generate and send a massive number of emails in a short period. This can overwhelm a user's inbox, disrupt normal communication, exhaust system resources, and even lead to email service blacklisting. Email flooding can be used for denial-of-service (DoS) attacks, spam campaigns, or distraction techniques to mask other malicious activities, such as account takeover attempts.",
+    "Recommendations" :[ 
+      "Restrict the number of emails a user or IP address can send within a specific time frame.",
+      "Implement CAPTCHA or reCAPTCHA on forms that trigger email sending (e.g., contact forms, password resets) to prevent automated abuse.",
+      "Introduce a delay or cooldown period between successive email requests (e.g., one password reset email per minute).",
+      "Employ an email queue system to manage bulk email processing and prevent overload.",
+      "Throttle outgoing emails to avoid hitting email service provider rate limits."
+  ],
+    "relatedLinks": [
+      "[1] https://owasp.org/www-project-automated-threats-to-web-applications/",
+      "[2] https://www.hornetsecurity.com/en/blog/email-bombing/"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
