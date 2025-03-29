@@ -547,6 +547,22 @@
     ]
   },
   {
+    "name": "Sensitive Information Disclosure via robots.txt",
+    "issueBackground": "Sensitive Information Disclosure via robots.txt occurs when a website’s robots.txt file inadvertently exposes sensitive information about the site’s internal structure or private areas. The robots.txt file is publicly accessible and used by search engine bots to determine which pages or directories should not be crawled. However, if sensitive or private URLs, paths, or directories are listed in this file, they could give attackers valuable insights into the site’s internal structure, making it easier to target and exploit vulnerabilities. For example, an attacker could identify areas like admin panels, internal API endpoints, or other private sections meant to be restricted but only protected by obscurity.",
+    "Recommendations" :[ 
+      "Ensure that only necessary and non-sensitive paths are included in robots.txt.",
+      "Do not list sensitive or private paths in the robots.txt file. For example, avoid adding entries like Disallow: /admin/ or Disallow: /private/. Instead, rely on proper authentication and authorization to secure these areas.",
+      "Use proper access control mechanisms (authentication, authorization) for sensitive pages rather than relying on robots.txt for protection.",
+      "Regularly audit and review the contents of your robots.txt file for potential leakage of sensitive information.",
+      "Protect sensitive areas with a Web Application Firewall (WAF) that can block malicious access attempts based on patterns or signatures, even if an attacker has discovered vulnerable URLs via robots.txt.",
+      "Instead of using robots.txt for blocking search engine crawlers from sensitive areas, consider using HTTP headers, such as X-Robots-Tag, which can apply restrictions to specific content without disclosing those areas publicly."
+  ],
+    "relatedLinks": [
+      "[1] https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/Robots_txt",
+      "[2] https://www.invicti.com/web-vulnerability-scanner/vulnerabilities/robotstxt-detected/"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
