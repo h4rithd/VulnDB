@@ -580,6 +580,21 @@
     ]
   },
   {
+    "name": "CSV Injection",
+    "issueBackground": "(Comma-Separated Values) files without proper sanitization. These files are typically opened in spreadsheet software like Microsoft Excel or Google Sheets, which automatically execute formulas if certain characters (like =, +, -, or @) are placed at the beginning of a cell. An attacker can exploit this by injecting malicious formulas into input fields (e.g., name, email, address). When the exported CSV is opened, the malicious code may execute, potentially leading to data exfiltration (e.g., via =HYPERLINK() or =WEBSERVICE() functions), command execution (in legacy Excel versions), or phishing attacks.",
+    "Recommendations" :[ 
+      "Escape or prefix dangerous characters (=, +, -, @) with a single quote (') or other neutral characters before writing to CSV.",
+      "Use libraries or frameworks that handle CSV formatting securely, and avoid manual CSV construction.",
+      "Apply strict validation rules for all user-submitted fields that may end up in exported data.",
+      "Warn internal users handling CSV exports to open files with caution, preferably in tools that do not auto-execute formulas.",
+      "Consider exporting in non-executable formats (e.g., PDF) when appropriate for read-only reports."
+  ],
+    "relatedLinks": [
+      "[1] https://owasp.org/www-community/attacks/CSV_Injection",
+      "[2] https://cwe.mitre.org/data/definitions/1236.html"
+    ]
+  }  ,
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
