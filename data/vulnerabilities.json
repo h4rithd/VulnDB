@@ -563,6 +563,23 @@
     ]
   },
   {
+    "name": "Unauthenticated File Download",
+    "issueBackground": "An Unauthenticated File Download vulnerability occurs when a web application allows any user—without requiring login or session validation—to download files from the server. This can expose sensitive documents, internal reports, or other confidential data to the public. Since the server does not verify the identity of the requester, malicious users can directly access download URLs or endpoints and retrieve files that should be restricted to authorized users only. Such vulnerabilities are typically the result of missing access control logic on file endpoints or public exposure of files stored in accessible directories.",
+    "Recommendations" :[ 
+      "Ensure all file download endpoints verify that the user is authenticated before serving any content.",
+      "Reject requests from unauthenticated users with an appropriate HTTP 401 response.",
+      "Do not place sensitive files in web-accessible folders (e.g., under /public/).",
+      "Use internal storage and serve files through secured, authenticated routes.",
+      "Even after authentication, ensure users can only download files they are allowed to access.",
+      "If file sharing is needed, generate time-limited signed URLs tied to specific user sessions or roles.",
+      "Log all file download events and monitor for unusual access patterns or spikes in anonymous downloads."
+  ],
+    "relatedLinks": [
+      "[1] https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+      "[2] https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    ]
+  },
+  {
     "name": "",
     "issueBackground": "",
     "Recommendations" :[ 
