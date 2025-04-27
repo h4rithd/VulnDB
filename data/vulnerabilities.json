@@ -121,7 +121,7 @@
   {
     "name": "Sensitive Information Disclosure",
     "issueBackground": "Sensitive information disclosure occurs when an application unintentionally exposes sensitive or confidential data, such as user credentials, personal information, API keys, system configurations, or internal business logic. This can happen due to misconfigurations, insufficient access controls, or improper error handling. If exploited, attackers can use the disclosed information to launch further attacks, compromise systems, or steal sensitive data.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application exposes sensitive data, such as API keys, personal information, system configurations, and credentials, to the public, as demonstrated in the proof of concept (PoC) below. Attackers could exploit this exposed information to further compromise the application and its underlying systems.",
     "Recommendations" :[ 
       "Implement strict access controls using the principle of least privilege (PoLP) to ensure only authorized users can access sensitive information.",
       "Avoid exposing detailed error messages to end users that may contain sensitive data, such as database queries, file paths, or stack traces.",
@@ -136,7 +136,7 @@
   {
     "name": "Missing Server-Side Validation",
     "issueBackground": "Missing server-side validation occurs when an application relies solely on client-side mechanisms (e.g., JavaScript) to validate user input, without implementing robust checks on the server side. This creates a security risk as attackers can bypass client-side controls using tools like proxies or custom scripts to manipulate input data. Exploiting this vulnerability may lead to unauthorized access, injection attacks (e.g., SQL or XSS), or data integrity issues.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application has not properly implemented server-side validation, as demonstrated in the proof of concepts (PoCs) below. As a result, attackers are able to manipulate certain API endpoints, allowing them to make unauthorized changes to the application's data or functionality, as depicted in the PoC.",
     "Recommendations" :[ 
       "Validate all user inputs on the server side, regardless of whether client-side validation is also performed. Ensure input adheres to expected formats, lengths, and types.",
       "Remove potentially malicious content from inputs by using sanitization techniques. Escape data before rendering it in the output to prevent injection attacks.",
@@ -151,7 +151,7 @@
   {
     "name": "User Enumeration",
     "issueBackground": "User enumeration occurs when an application reveals information about existing user accounts through error messages, responses, or timing differences during authentication or other actions. For instance, an application may return distinct messages for valid versus invalid usernames during login attempts or password resets. This allows attackers to verify the existence of user accounts, potentially facilitating brute force or targeted attacks.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application's endpoints are vulnerable to user enumeration. Attackers can send the crafted API requests below to determine whether a user is already registered in the database or not, as demonstrated in the proof of concept (PoC). This information can be exploited for further attacks, such as social engineering or identifying registered users, which could then be followed by brute-forcing passwords to gain unauthorized access to the system.",
     "Recommendations" :[ 
       "Use generic and consistent error messages such as “Invalid credentials” or “Action could not be completed” to avoid disclosing whether a username or email exists.",
       "Ensure that application responses take a uniform amount of time, regardless of whether the user exists, to prevent timing-based enumeration.",
@@ -166,7 +166,7 @@
   {
     "name": "Account Takeover",
     "issueBackground": "Account takeover occurs when an attacker gains unauthorized access to a user's account, often by exploiting vulnerabilities such as weak authentication mechanisms, credential reuse, phishing, or session management flaws. This type of attack compromises user privacy and security, potentially leading to fraud, data breaches, or misuse of the account for malicious purposes.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application is vulnerable to account takeover, as demonstrated in the proof of concept (PoC) below. Attackers can send specially crafted payloads along with user-level cookies and authorizations, enabling them to grant special roles or permissions to the current user level, thereby escalating their privileges to a higher user level. This vulnerability could lead to unauthorized access and manipulation of sensitive application features.",
     "Recommendations" :[ 
       "Ensure API endpoints related to authentication are secure, properly rate-limited, and protected from replay attacks.",
       "Implement multi-factor authentication (MFA) to add an extra layer of security.",
@@ -183,7 +183,7 @@
   {
     "name": "Improper Authorization",
     "issueBackground": "Improper authorization occurs when an application fails to adequately verify whether a user has the necessary permissions to perform a specific action or access a resource. This flaw can lead to unauthorized access to sensitive data, functionality, or administrative features. Improper authorization is commonly associated with broken access control vulnerabilities, such as IDOR, privilege escalation, or bypassing authorization mechanisms.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that some of the application's API endpoints do not properly implement authorization controls. As a result, attackers with low-level user privileges are able to access API endpoints that require higher levels of permission, as demonstrated in the proof of concept (PoC) below. This vulnerability could lead to unauthorized access to restricted functionality and sensitive data.",
     "Recommendations" :[ 
       "Define and enforce strict access control policies that specify which users or roles have permission to access specific resources and perform particular actions.",
       "Ensure that the system performs proper authorization checks for every request to access resources or execute actions, verifying that the user has the appropriate permissions.",
@@ -199,7 +199,7 @@
   {
     "name": "Improper Session Handling",
     "issueBackground": "Improper session handling occurs when an application fails to securely create, manage, or terminate user sessions. Vulnerabilities in session management can lead to session hijacking, fixation, or misuse, allowing attackers to impersonate legitimate users and gain unauthorized access to their accounts. Weak session handling is often caused by insecure cookie management, improper session expiration, or insufficient protection of session tokens.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application lacks proper session handling. Specifically, the application either fails to terminate session tokens properly or sets the session expiration date for an excessively long duration. This vulnerability allows attackers to reuse the same session token even after the user has logged out, potentially leading to unauthorized access and session hijacking.",
     "Recommendations" :[ 
       "Generate session tokens using cryptographically secure algorithms.",
       "Ensure tokens are sufficiently random to prevent prediction or brute-force attacks.",
@@ -350,7 +350,7 @@
   {
     "name": "OTP Bypass via Brute Force",
     "issueBackground": "One-Time Password (OTP) bypass via brute force occurs when an application does not properly restrict the number of OTP submission attempts, allowing attackers to systematically try different OTP combinations until they find the correct one. This vulnerability is often exploited when there is no rate limiting or CAPTCHA protection, the OTP length is too short (e.g., 4-6 digits), the OTP remains valid for an extended period, or the application fails to block or alert on excessive failed OTP attempts. If successfully exploited, an attacker can gain unauthorized access to user accounts, bypass multi-factor authentication (MFA), and compromise sensitive data.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application's OTP verification function can be bypassed through brute-forcing the OTP verification API endpoints using a combination of OTP wordlists. By exploiting this vulnerability, attackers are able to gain unauthorized access to the system.",
     "Recommendations" :[ 
       "Restrict the number of OTP attempts per user (e.g., 3-5 failed attempts before account lockout).",
       "Use exponential backoff or introduce a cooldown period after multiple failed attempts.",
@@ -411,7 +411,7 @@
   {
     "name": "Directory Traversal",
     "issueBackground": "Directory Traversal, also known as Path Traversal, is a security vulnerability that allows an attacker to access files and directories that are stored outside the intended directory, typically through manipulation of file path inputs. By using special character sequences such as '../' (dot-dot-slash), attackers can navigate up the directory tree, potentially gaining access to sensitive files, configuration files, logs, or system files that should not be publicly accessible. This vulnerability can lead to unauthorized information disclosure, data manipulation, or further system exploitation.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application's endpoints are vulnerable to directory traversal attacks, as listed in the proof of concept (PoC) below. By exploiting this vulnerability, attackers can access sensitive information and even the application's source code, as demonstrated in the PoC.",
     "Recommendations" :[ 
       "Ensure that all user inputs related to file or directory names are properly sanitized and validated. This includes stripping or rejecting characters like ../, ..%2f, or any other sequences that could traverse directories.",
       "Use strict input validation to only accept file names or paths that meet specific patterns or are whitelisted.",
@@ -465,7 +465,7 @@
   {
     "name": "Unrestricted File Upload",
     "issueBackground": "Unrestricted File Upload occurs when an application allows users to upload files without properly validating the content, type, or size of the files. This vulnerability can be exploited by attackers to upload malicious files (such as web shells, scripts, or executable files) to the server, potentially leading to remote code execution, unauthorized access, data breaches, or full server compromise. Without proper validation, attackers can upload files that can be executed or used to gain unauthorized access to the system. In many cases, web applications might improperly trust file extensions or rely solely on client-side checks, which can be easily bypassed.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application's file upload function does not properly validate uploaded files, as demonstrated in the proof of concept (PoC) below. By exploiting this vulnerability, attackers are able to upload malicious files, such as viruses or malware, and in some cases, may even be able to deface the web application, as shown in the PoC.",
     "Recommendations" :[ 
       "Restrict file uploads to specific, trusted file types (e.g., only image formats like .jpg, .png, or .gif for image uploads).",
       "Check the MIME type of files both on the client and server side to ensure that uploaded files are of the expected format.",
@@ -503,7 +503,7 @@
   {
     "name": "Improper Error Handling",
     "issueBackground": "Improper Error Handling occurs when an application fails to handle errors securely, exposing sensitive system details, stack traces, database queries, or internal implementation logic. Attackers can exploit this information to identify security vulnerabilities, such as SQL injection points, directory structures, or authentication mechanisms. Detailed error messages may also reveal user enumeration risks or cryptographic details, aiding in further attacks. Secure applications should return generic error messages while logging detailed errors for internal debugging.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was found that the application does not properly handle errors and exceptions. As a result, some error messages from the server are visible to attackers. This information can be used by attackers to determine the application's technology stack, potentially aiding in further targeted attacks.",
     "Recommendations" :[ 
       "Display user-friendly, generic error messages that do not expose sensitive system details.",
       "Avoid displaying stack traces, SQL errors, or file paths in the response.",
@@ -536,7 +536,7 @@
   {
     "name": "Cookie Without HttpOnly Flag Set",
     "issueBackground": "Cookies Without the HttpOnly Flag pose a security risk because they can be accessed via client-side JavaScript, making them vulnerable to Cross-Site Scripting (XSS) attacks. If an attacker exploits an XSS vulnerability, they can steal session cookies, allowing them to hijack user sessions or perform unauthorized actions. The HttpOnly flag prevents client-side scripts from accessing the cookie, mitigating the risk of theft via JavaScript-based attacks.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application does not properly implement the HttpOnly flag for certain cookies, as demonstrated in the screenshot below. This oversight increases the risk of client-side script access to these cookies, potentially exposing them to cross-site scripting (XSS) attacks.",
     "Recommendations" :[ 
       "Set the HttpOnly flag for all session and authentication-related cookies to prevent JavaScript access.",
       "Combine the HttpOnly flag with the Secure flag to ensure cookies are only transmitted over HTTPS.",
@@ -551,7 +551,7 @@
   {
     "name": "TLS Cookie Without Secure Flag",
     "issueBackground": "Cookies Without the Secure Flag are vulnerable to being transmitted over unencrypted HTTP connections, exposing them to interception by attackers via Man-in-the-Middle (MitM) attacks. When the Secure flag is not set, session tokens, authentication cookies, and other sensitive data can be leaked if a user accidentally accesses the application over an insecure connection. The Secure flag ensures that cookies are only transmitted over HTTPS, reducing the risk of session hijacking and credential theft.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that certain cookies in the application do not properly implement the Secure flag, as depicted in the proof of concept (PoC) below. This oversight increases the risk of cookie interception by attackers, particularly when transmitted over unencrypted connections, potentially compromising the security of user sessions.",
     "Recommendations" :[ 
       "Ensure that session and authentication cookies include the Secure flag so they are only sent over HTTPS.",
       "Use HSTS (HTTP Strict Transport Security) to force all connections over HTTPS.",
@@ -566,7 +566,7 @@
   {
     "name": "Email Flooding Attack",
     "issueBackground": "Email Flooding Attack occurs when an attacker exploits a system’s email-sending functionality to generate and send a massive number of emails in a short period. This can overwhelm a user's inbox, disrupt normal communication, exhaust system resources, and even lead to email service blacklisting. Email flooding can be used for denial-of-service (DoS) attacks, spam campaigns, or distraction techniques to mask other malicious activities, such as account takeover attempts.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application endpoints, particularly the send-email API endpoints listed in the proof of concept (PoC) below, do not properly handle rate limiting. By exploiting this vulnerability, attackers can repeatedly send requests, potentially sending large volumes of emails to relevant email addresses, thereby exhausting server resources and potentially causing service disruption.",
     "Recommendations" :[ 
       "Restrict the number of emails a user or IP address can send within a specific time frame.",
       "Implement CAPTCHA or reCAPTCHA on forms that trigger email sending (e.g., contact forms, password resets) to prevent automated abuse.",
@@ -582,7 +582,7 @@
   {
     "name": "Sensitive Information Disclosure via robots.txt",
     "issueBackground": "Sensitive Information Disclosure via robots.txt occurs when a website’s robots.txt file inadvertently exposes sensitive information about the site’s internal structure or private areas. The robots.txt file is publicly accessible and used by search engine bots to determine which pages or directories should not be crawled. However, if sensitive or private URLs, paths, or directories are listed in this file, they could give attackers valuable insights into the site’s internal structure, making it easier to target and exploit vulnerabilities. For example, an attacker could identify areas like admin panels, internal API endpoints, or other private sections meant to be restricted but only protected by obscurity.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application discloses sensitive information through the robots.txt file, as demonstrated in the proof of concept (PoC) below. This sensitive information should not be exposed to the public, as it could provide attackers with valuable insights into the application's structure or security weaknesses.",
     "Recommendations" :[ 
       "Ensure that only necessary and non-sensitive paths are included in robots.txt.",
       "Do not list sensitive or private paths in the robots.txt file. For example, avoid adding entries like Disallow: /admin/ or Disallow: /private/. Instead, rely on proper authentication and authorization to secure these areas.",
@@ -599,7 +599,7 @@
   {
     "name": "Unauthenticated File Download",
     "issueBackground": "An Unauthenticated File Download vulnerability occurs when a web application allows any user—without requiring login or session validation—to download files from the server. This can expose sensitive documents, internal reports, or other confidential data to the public. Since the server does not verify the identity of the requester, malicious users can directly access download URLs or endpoints and retrieve files that should be restricted to authorized users only. Such vulnerabilities are typically the result of missing access control logic on file endpoints or public exposure of files stored in accessible directories.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application is vulnerable to an unauthenticated file download vulnerability, as depicted in the proof of concept (PoC) below. By exploiting this vulnerability, attackers are able to download files that should require higher privileges, gaining access to sensitive information that would otherwise be restricted.",
     "Recommendations" :[ 
       "Ensure all file download endpoints verify that the user is authenticated before serving any content.",
       "Reject requests from unauthenticated users with an appropriate HTTP 401 response.",
@@ -617,7 +617,7 @@
   {
     "name": "CSV Injection",
     "issueBackground": "CSV Injection (also known as Formula Injection) occurs when untrusted user input is exported into CSV (Comma-Separated Values) files without proper sanitization. These files are typically opened in spreadsheet software like Microsoft Excel or Google Sheets, which automatically execute formulas if certain characters (like =, +, -, or @) are placed at the beginning of a cell. An attacker can exploit this by injecting malicious formulas into input fields (e.g., name, email, address). When the exported CSV is opened, the malicious code may execute, potentially leading to data exfiltration (e.g., via =HYPERLINK() or =WEBSERVICE() functions), command execution (in legacy Excel versions), or phishing attacks.",
-    "issueDetail":"",
+    "issueDetail":"During the penetration test, it was observed that the application does not properly validate input, allowing attackers to insert malicious CSV injection payloads. Once the user downloads and views the file, the malicious payload is executed on their machine. By exploiting this vulnerability, attackers could potentially gain system access, including remote access to the affected machine.",
     "Recommendations" :[ 
       "Escape or prefix dangerous characters (=, +, -, @) with a single quote (') or other neutral characters before writing to CSV.",
       "Use libraries or frameworks that handle CSV formatting securely, and avoid manual CSV construction.",
