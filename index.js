@@ -49,12 +49,13 @@ app.get("/submit", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  const { name, issueBackground, relatedLinks } = req.body;
+  const { name, issueBackground, issueDetail, relatedLinks } = req.body;
   const vulnerabilities = readVulnerabilities();
 
   vulnerabilities.push({
     name,
     issueBackground,
+    issueDetail,
     relatedLinks: relatedLinks.split(","),
   });
 

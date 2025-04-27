@@ -192,6 +192,8 @@
             </div>
             <h6 class="font-normal text-lg text-gray-900 dark:text-white">Issue Background:</h6>
             <span onclick="copyToClipboard(this)" class="font-light font-normal cursor-pointer text-gray-500 dark:text-gray-400">${v.issueBackground}</span>
+            <h6 class="font-normal text-lg text-gray-900 dark:text-white">Issue Details:</h6>
+            <span onclick="copyToClipboard(this)" class="font-light font-normal cursor-pointer text-gray-500 dark:text-gray-400">${v.issueDetail}</span>
             <h6 class="font-normal pt-4 text-lg text-gray-900 dark:text-white">Recommendations:</h6>
             <ul class="list-disc pl-8 text-gray-500 dark:text-gray-400">
             ${v.Recommendations.map(rec => `<li class="font-light cursor-pointer" onclick="copyToClipboard(this)">${rec}</li>`).join("")}
